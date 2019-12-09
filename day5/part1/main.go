@@ -20,7 +20,7 @@ func main() {
 	start := time.Now()
 
 	program := readProgram()
-	runProgram(program)
+	runProgram(program, 1)
 
 	fmt.Println(time.Since(start))
 }
@@ -32,7 +32,7 @@ func readProgram() []int {
 	return slices.Atoi(strings.Split(programStr, ","))
 }
 
-func runProgram(program []int) {
+func runProgram(program []int, input int) {
 	for i := 0; i < len(program); i++ {
 		opCode := program[i] % 100
 		modes := program[i] / 100
@@ -49,7 +49,6 @@ func runProgram(program []int) {
 			program[storeAt] = val1 * val2
 			i += 3
 		} else if opCode == 3 {
-			input := 5
 			storeAt := program[i+1]
 			program[storeAt] = input
 			i++
