@@ -26,5 +26,5 @@ func ClearScreen() {
 }
 
 func Goto(x, y int) {
-	fmt.Printf("\033[%d;%dH", x, y)
+	fmt.Printf("\033[%d;%dH", y+1, x+1)
 }
